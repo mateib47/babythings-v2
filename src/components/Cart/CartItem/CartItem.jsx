@@ -3,8 +3,9 @@ import { Typography, Button, Card, CardActions, CardContent, CardMedia} from '@m
 
 import useStyles from './styles';
 
+//todo use react context for props
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   
   const classes = useStyles(); 
 
@@ -17,12 +18,12 @@ const CartItem = ({ item }) => {
         </CardContent>  
         <CardActions className={classes.cardActions}>
             <div className={classes.buttons}>
-                <Button type="button" size="small">-</Button>
+                <Button type="button" size="small" onClick={() => onUpdateCartQty(item.id, item.quantity - 1)}>-</Button>
                 <Typography>{item.quantity}</Typography>
-                <Button type="button" size="small">+</Button>
+                <Button type="button" size="small" onClick={() => onUpdateCartQty(item.id, item.quantity + 1)}>+</Button>
 
             </div>
-            <Button variant="contained" type="button" color="secondary">Remove</Button>
+            <Button variant="contained" type="button" color="secondary" onClick={() => onRemoveFromCart(item.id)}>Remove</Button>
         </CardActions>
     </Card>
   )
