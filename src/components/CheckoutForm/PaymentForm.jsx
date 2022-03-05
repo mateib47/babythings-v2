@@ -13,7 +13,7 @@ const PaymentForm = ({checkoutToken, backStep}) => {
         <Review checkoutToken={checkoutToken} />
         <Divider />
         <Typography variant="h6" gutterBottom style = {{margin: '20px 0'}}>Payment method</Typography>
-        <Elements stripe={stripePromise}>
+        {/* <Elements stripe={stripePromise}>
             <ElementsConsumer>
                 {({elements, stripe}) => (
                     <form>
@@ -28,7 +28,7 @@ const PaymentForm = ({checkoutToken, backStep}) => {
                     </form>
                 )}
             </ElementsConsumer>
-        </Elements>
+        </Elements> */}
     </>
   )
 }

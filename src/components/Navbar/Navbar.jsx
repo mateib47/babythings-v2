@@ -21,6 +21,15 @@ const Navbar = ({totalItems}) => {
                     Kiekebox
                 </Typography>
                 <div className={classes.grow} />
+                <Typography component={Link} to="/boxes" variant="h6"  color="inherit" className={classes.titleUncentered}>
+                    Our Boxes
+                </Typography>
+                <Typography component={Link} to="/order" variant="h6"  color="inherit" className={classes.titleUncentered}>
+                    Order
+                </Typography>
+                <Typography component={Link} to="/account" variant="h6"  color="inherit" className={classes.titleUncentered}>
+                    Account
+                </Typography>
                 {location.pathname === '/' && (
                 <div className={classes.button}>
                     <IconButton component={Link} to="/cart" area-label="Show cart items" color="inherit">

@@ -17,6 +17,10 @@ export default makeStyles((theme) => ({
     display: 'flex',
     textDecoration: 'none',
   },
+   titleUncentered: {
+    flexGrow: 0.1,
+    textDecoration: 'none',
+  },
   image: {
     marginRight: '10px',
   },
