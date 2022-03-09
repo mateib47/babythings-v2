@@ -4,10 +4,21 @@ import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js
 import { loadStripe } from '@stripe/stripe-js'
 
 import Review from './Review'
+import { indigo } from '@material-ui/core/colors';
 
-const stripePromise = loadStripe('...');
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 const PaymentForm = ({checkoutToken, backStep}) => {
+    const handleSubmit = (event, elements, stripe) => {
+        event.preventDefault();
+        if(!stripe || !elements) return;
+        const cardElement = elements.getElement(CardElement);
+        const {error, paymentMethod } = await stripe.createPaymentMethod({type:'card', card:cardElement});
+        if(error){
+            console.log(error);
+        }
+    }
+
   return (
     <>
         <Review checkoutToken={checkoutToken} />
@@ -16,7 +27,7 @@ const PaymentForm = ({checkoutToken, backStep}) => {
         {/* <Elements stripe={stripePromise}>
             <ElementsConsumer>
                 {({elements, stripe}) => (
-                    <form>
+                    <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
                         <CardElement />
                         <br/><br/>
                         <div style = {{display:'flex',justifyContent:'space-between'}}>

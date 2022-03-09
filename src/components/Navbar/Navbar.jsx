@@ -30,7 +30,7 @@ const Navbar = ({totalItems}) => {
                 <Typography component={Link} to="/account" variant="h6"  color="inherit" className={classes.titleUncentered}>
                     Account
                 </Typography>
-                {location.pathname === '/' && (
+                {location.pathname !== '/cart' && (
                 <div className={classes.button}>
                     <IconButton component={Link} to="/cart" area-label="Show cart items" color="inherit">
                         <Badge badgeContent={totalItems} color="secondary">
