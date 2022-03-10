@@ -9,13 +9,36 @@ import { indigo } from '@material-ui/core/colors';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 const PaymentForm = ({checkoutToken, backStep}) => {
-    const handleSubmit = (event, elements, stripe) => {
+    const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault();
         if(!stripe || !elements) return;
         const cardElement = elements.getElement(CardElement);
         const {error, paymentMethod } = await stripe.createPaymentMethod({type:'card', card:cardElement});
         if(error){
             console.log(error);
+        } else {
+            const orderData = {
+                line_items: checkoutToken.live.line_items,
+                customer: { firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email},
+                shipping: {
+                    name: 'Primary', 
+                    street: shippingData.address1,
+                    townCity: shippingData.city,
+                    countryState: shippingData.shippingSubdivision,
+                    postalZipCode: shippingData.postalZipCode,
+                    country: shippingData.shippingCountry
+                },
+                fulfillment: {shippingMethod: shippingData.shippingOption},
+                payment: {
+                    gateway: 'stripe',
+                    stripe: {
+                        paymentMethodId: paymentMethod.id
+                    }
+                }
+            }
+            onCaptureCheckout(checkoutToken.id, orderData);
+
+            nextStep();
         }
     }
 
