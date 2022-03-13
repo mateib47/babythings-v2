@@ -7,7 +7,7 @@ const App = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
     const [order, setOrder] = useState({});
-    const [error, errorMessage] = useState('');
+    const [error, setErrorMessage] = useState('');
 
     const fetchProducts = async () => {
         const {data} = await commerce.products.list();
@@ -79,7 +79,7 @@ const App = () => {
                         handleCartQty={handleCartQty} 
                     />} 
                 />
-                <Route path="/checkout" element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />} />
+                <Route path="/checkout" element={<Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={setErrorMessage} />} />
             </Routes>
         </div>
       </Router>

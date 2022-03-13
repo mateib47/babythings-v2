@@ -8,7 +8,7 @@ import { indigo } from '@material-ui/core/colors';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
-const PaymentForm = ({checkoutToken, backStep}) => {
+const PaymentForm = ({checkoutToken, nextStep, backStep, shippingData, onCaptureCheckout}) => {
     const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault();
         if(!stripe || !elements) return;
