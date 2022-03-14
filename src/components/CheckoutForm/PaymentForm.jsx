@@ -4,7 +4,6 @@ import { Elements, CardElement, ElementsConsumer } from '@stripe/react-stripe-js
 import { loadStripe } from '@stripe/stripe-js'
 
 import Review from './Review'
-import { indigo } from '@material-ui/core/colors';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
@@ -17,25 +16,27 @@ const PaymentForm = ({checkoutToken, nextStep, backStep, shippingData, onCapture
         if(error){
             console.log(error);
         } else {
+            console.log(shippingData);
             const orderData = {
                 line_items: checkoutToken.live.line_items,
                 customer: { firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email},
                 shipping: {
                     name: 'Primary', 
                     street: shippingData.address1,
-                    townCity: shippingData.city,
-                    countryState: shippingData.shippingSubdivision,
-                    postalZipCode: shippingData.postalZipCode,
+                    town_city: shippingData.city,
+                    country_state: shippingData.shippingSubdivision,
+                    postal_zip_code: shippingData.postalZipCode,
                     country: shippingData.shippingCountry
                 },
-                fulfillment: {shippingMethod: shippingData.shippingOption},
+                fulfillment: {shipping_method: shippingData.shippingOption},
                 payment: {
                     gateway: 'stripe',
                     stripe: {
-                        paymentMethodId: paymentMethod.id
-                    }
-                }
+                      payment_method_id: paymentMethod.id,
+                    },
+                  },
             }
+            console.log(orderData);
             onCaptureCheckout(checkoutToken.id, orderData);
 
             nextStep();
@@ -47,7 +48,7 @@ const PaymentForm = ({checkoutToken, nextStep, backStep, shippingData, onCapture
         <Review checkoutToken={checkoutToken} />
         <Divider />
         <Typography variant="h6" gutterBottom style = {{margin: '20px 0'}}>Payment method</Typography>
-        {/* <Elements stripe={stripePromise}>
+        <Elements stripe={stripePromise}>
             <ElementsConsumer>
                 {({elements, stripe}) => (
                     <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
@@ -62,7 +63,7 @@ const PaymentForm = ({checkoutToken, nextStep, backStep, shippingData, onCapture
                     </form>
                 )}
             </ElementsConsumer>
-        </Elements> */}
+        </Elements>
     </>
   )
 }

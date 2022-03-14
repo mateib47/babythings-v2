@@ -10,4 +10,10 @@ export default makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  cardImage: {
+    objectFit: 'cover',
+    borderRadius: 55,
+    width: '50vw',
+    height: '30vh'
+    },
 }));
