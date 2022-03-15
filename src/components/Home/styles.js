@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+
 export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   content: {
@@ -12,8 +13,14 @@ export default makeStyles((theme) => ({
   },
   cardImage: {
     objectFit: 'cover',
-    borderRadius: 55,
-    width: '50vw',
-    height: '30vh'
+    width: '30vw',
     },
+  cardBody: {
+    width: '100vw',
+    height: '100vh'
+    }, 
+    parent: {
+      minHeight : '100vh',
+      backgroundImage: `url(${require(process.env.PUBLIC_URL + "./../../assets/img/bg.png")})`,
+    }
 }));
