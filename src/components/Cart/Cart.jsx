@@ -9,13 +9,13 @@ import CartItem from './CartItem/CartItem'
 const Cart = ({ cart, handleEmptyCart,handleRemoveFromCart,handleCartQty}) => {
     const classes = useStyles(); 
 
-    const EmptyCart = () => (
+    const renderEmptyCart = () => (
         <Typography variant="subtitle1">You have no items in your shopping cart,
             <Link to="/boxes" className={classes.link}> start adding some</Link>!
         </Typography>
     )
 
-    const FilledCart = () => (
+    const renderFilledCart = () => (
         <>
             <Grid container spacing={3}>
                 {cart.line_items.map((item) => (
@@ -42,7 +42,7 @@ const Cart = ({ cart, handleEmptyCart,handleRemoveFromCart,handleCartQty}) => {
     <Container>
         <div className={classes.toolbar} />
         <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
-        { !cart.line_items.length ? <EmptyCart /> : <FilledCart/>}
+        { !cart.line_items.length ? renderEmptyCart() : renderFilledCart()}
     </Container>
   )
 }
