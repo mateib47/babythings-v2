@@ -1,7 +1,8 @@
 import React from 'react';
 import useStyles from './styles';
-import {Typography, CssBaseline} from '@material-ui/core';
+import {Typography, CssBaseline, IconButton, Collapse} from '@material-ui/core';
 import {Card, Button, Col, Row} from "react-bootstrap";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import boxes from '../../assets/img/boxes2.png';
 import bg from '../../assets/img/bg.png';
@@ -11,12 +12,26 @@ import bg from '../../assets/img/bg.png';
 
 const Home = () => {
     const classes = useStyles();
+    const [checked, setChecked] = useState(false);
+    useEffect(() => {
+      setChecked(true);
+    }, []);
 
   return (
       <>
         <div className={classes.toolbar}/>
         <div className={classes.parent} style={{backgroundImage:{bg}}}>
-          <CssBaseline />
+          <Collapse 
+            in={checked}
+            {...(checked ? { timeout: 1000 } : {})}
+            collapsedHeight={50}
+            >
+            <CssBaseline />
+            <Typography variant='h2' className={classes.title}> High quality, gender neutral, european sourced</Typography>
+            <IconButton>
+              <ExpandMoreIcon className={classes.goDown} />
+            </IconButton>
+          </Collapse>
             {/* <FirstCard classes={classes}/> */}
         </div>
       </>
