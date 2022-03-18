@@ -18,12 +18,15 @@ export default makeStyles((theme) => ({
   cardBody: {
     width: '100vw',
     height: '100vh'
-    }, 
+    },
+    fullScreen: {
+      minHeight : '100vh',
+    } ,
     parent: {
+      minHeight : '100vh',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      minHeight : '100vh',
       backgroundImage: `url(${require(process.env.PUBLIC_URL + "./../../assets/img/bg.png")})`,
     },
     title: {
@@ -40,6 +43,7 @@ export default makeStyles((theme) => ({
       
     },
     goDown: {
-      fontSize: '4rem'
-    }
+      fontSize: '7rem',
+      color: '#fff'
+    },
 }));
