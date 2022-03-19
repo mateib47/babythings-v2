@@ -16,21 +16,19 @@ export default makeStyles((theme) => ({
     width: '30vw',
     },
   cardBody: {
-    width: '100vw',
-    height: '100vh'
+    width: '80vw',
+    height: '50vh',
     },
     fullScreen: {
       minHeight : '100vh',
     } ,
     parent: {
-      minHeight : '100vh',
+      height : '100vh',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundImage: `url(${require(process.env.PUBLIC_URL + "./../../assets/img/bg.png")})`,
     },
     title: {
-      textAlign: 'center',
       flexGrow:'1',
       fontSize: '4rem',
       maxWidth: '35%',
@@ -42,8 +40,22 @@ export default makeStyles((theme) => ({
       textShadowRadius:'10'
       
     },
+    container: {
+      textAlign: 'center',
+    },
     goDown: {
-      fontSize: '7rem',
+      fontSize: '4rem',
       color: '#fff'
     },
+    parentTwo: {
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    center: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }
 }));
