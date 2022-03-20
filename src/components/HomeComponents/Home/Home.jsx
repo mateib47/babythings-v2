@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
-    backgroundImage: `url(${require(process.env.PUBLIC_URL + "./../../../assets/img/bg2.jpg")})`,
+    backgroundImage: `url(${require(process.env.PUBLIC_URL + "./../../../assets/img/bg.png")})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',

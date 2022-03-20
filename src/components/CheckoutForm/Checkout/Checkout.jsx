@@ -7,9 +7,9 @@ import {commerce} from '../../../lib/commerce'
 import useStyles from './styles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
+import BabyForm from '../BabyForm';
 
-
-const steps = ['Shipping Address', 'Payment details'];
+const steps = ["Baby's details", 'Shipping Address', 'Payment details'];
 
 
 const Checkout = ({cart, order, onCaptureCheckout, error}) => {
@@ -40,8 +40,13 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
     const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
 
-    const next = (data) => {
+    const toPayment = (data) => {
         setShippingData(data);
+        nextStep();
+    }
+    const toAddress = (data) => {
+        //setShippingData(data);
+        //set baby details
         nextStep();
     }
     const timeout = () => {
@@ -82,10 +87,23 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
             <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
         </>
     }
-
-    const Form = () => (activeStep === 0
-        ? <AddressForm checkoutToken={checkoutToken} next={next} />
-        : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeout={timeout}/>);
+    
+    const renderSwitch = (step) => {
+        if (checkoutToken){
+            switch(step){
+                case 0:
+                    return <BabyForm checkoutToken={checkoutToken} next={toAddress}/>
+                case 2:
+                    return <AddressForm checkoutToken={checkoutToken} next={toPayment} />;
+                    break;
+                case 1:
+                    return <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeout={timeout}/>;
+                    break;     
+            }
+        }
+        if (step == 2) 
+            return <Confirmation />;
+    }
     
   return (
     <>
@@ -101,7 +119,7 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
                         </Step>
                     ))}
                 </Stepper>
-                {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
+                {renderSwitch(activeStep)}
             </Paper>
         </main>
         

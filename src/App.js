@@ -67,7 +67,7 @@ const App = () => {
             <Navbar totalItems={cart.total_items}/>
             <Routes>
                 <Route path="/" element={<Home/>} />
-                <Route path="/boxes" element={<Products products={products} onAddToCart={handleAddToCart}/>} />
+                <Route path="/order" element={<Products products={products} onAddToCart={handleAddToCart}/>} />
                 <Route path="/cart" element={
                     <Cart 
                         cart={cart}
