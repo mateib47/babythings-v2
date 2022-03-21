@@ -14,6 +14,8 @@ import SkipNextIcon from '@mui/icons-material/SkipNext';
 import useStyles from './styles';
 // import {Card, Button, Col, Row} from "react-bootstrap";
 import boxes from '../../assets/img/boxes2.png';
+import {Link} from 'react-router-dom'
+
 
 
 const Description = () => {
@@ -49,7 +51,7 @@ const Description = () => {
             both growth and joy. Your little family can sleep well at night knowing that your baby is cared in a cute, conscious and convenient way every single month.
           </Typography>
           <br/><br/>
-          <Button type="submit" variant="contained" color="primary">Get Started</Button>
+          <Button type="submit" variant="contained" color="primary" component={Link} to="/order">Get Started</Button>
         </CardContent>
       </Box>
       <CardMedia

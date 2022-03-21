@@ -93,10 +93,11 @@ const Checkout = ({cart, order, onCaptureCheckout, error}) => {
             switch(step){
                 case 0:
                     return <BabyForm checkoutToken={checkoutToken} next={toAddress}/>
-                case 2:
-                    return <AddressForm checkoutToken={checkoutToken} next={toPayment} />;
                     break;
                 case 1:
+                    return <AddressForm checkoutToken={checkoutToken} next={toPayment} />;
+                    break;
+                case 2:
                     return <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeout={timeout}/>;
                     break;     
             }

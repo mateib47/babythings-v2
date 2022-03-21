@@ -26,7 +26,7 @@ const CustomSelect = ({name, label,value, array, setFunction}) => {
   return (
     <Grid item xs={12} sm={6}>
         <InputLabel>{label}</InputLabel>
-        <Select value={value} fullWidth onChange={(e) => setFunction(e.target.value)}>
+        <Select required value={value} fullWidth onChange={(e) => setFunction(e.target.value)}>
             {array.map((elem) => (
                 <MenuItem key={elem.id} value={elem.id}>
                     {elem.label}

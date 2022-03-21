@@ -9,6 +9,8 @@ import DatePicker from '@mui/lab/DatePicker';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
 
 
 
@@ -26,13 +28,14 @@ const BabyForm = ({checkoutToken, next}) => {
   return (
     <>
     <Typography variant="h6" gutterBottom>Baby's Details</Typography>
+    <br/>
     <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit((data) => (next({...data})))}>
             <Grid container spacing={3}>
                 <FormInput required name="babyName" label="Baby's name" />
                 <Grid item xs={12} sm={6}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <DatePicker
+                        <DatePicker required
                             label="Baby's birthday"
                             value={value}
                             onChange={(newValue) => {
@@ -42,10 +45,19 @@ const BabyForm = ({checkoutToken, next}) => {
                         />
                     </LocalizationProvider>
                 </Grid>
-                <FormInput required name="language" label="Language" />
+                <Grid item xs={12} sm={6}>
+                    <RadioGroup row
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        defaultValue="dutch"
+                        name="radio-buttons-group"
+                    >
+                        <FormControlLabel value="dutch" control={<Radio />} label="Dutch" />
+                        <FormControlLabel value="english" control={<Radio />} label="English" />
+                    </RadioGroup>
+                </Grid>
                 <CustomSelect name="size" label="Baby's current clothing size" array={sizes} value={babySize} setFunction={setbabySize}/>
                 <Grid item xs={12} sm={6}>
-                    <FormControlLabel control={<Checkbox defaultChecked />} label="Gift" />
+                    <FormControlLabel control={<Checkbox/>} label="Gift" />
                 </Grid> 
             </Grid>
             <br/>
