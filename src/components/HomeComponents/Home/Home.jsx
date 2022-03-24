@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../Header'
 import Description from '../Description'
-import {Typography, CssBaseline, IconButton, Collapse} from '@material-ui/core';
+import Carousel from '../Carousel'
+import {CssBaseline, IconButton, Collapse} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
  
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +23,7 @@ const Home = () => {
        <CssBaseline />
        <Header/>
        <Description/> 
+       <Carousel />
     </div>
   )
 }
