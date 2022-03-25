@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Header'
 import Description from '../Description'
 import Carousel from '../Carousel'
+import DeliveryTimeline from '../DeliveryTimeline'
 import {CssBaseline, IconButton, Collapse} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
  
@@ -23,6 +24,7 @@ const Home = () => {
        <CssBaseline />
        <Header/>
        <Description/> 
+       <DeliveryTimeline />
        <Carousel />
     </div>
   )

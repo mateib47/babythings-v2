@@ -57,5 +57,20 @@ export default makeStyles((theme) => ({
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+    },
+    timeline: {
+      transform: "rotate(90deg)"
+    },
+    timelineContentContainer: {
+      textAlign: "left"
+    },
+    timelineContent: {
+      display: "inline-block",
+      transform: "rotate(-90deg)",
+      textAlign: "center",
+      minWidth: 50
+    },
+    timelineIcon: {
+      transform: "rotate(-90deg)"
     }
 }));
