@@ -10,10 +10,12 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
-    backgroundImage: `url(${require(process.env.PUBLIC_URL + "./../../../assets/img/bg.png")})`,
-    backgroundRepeat: 'no-repeat',
+    backgroundImage: `url(${require(process.env.PUBLIC_URL + "./../../../assets/img/bg3.png")})`,
+    backgroundRepeat: 'repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
+
   },
 }));
 

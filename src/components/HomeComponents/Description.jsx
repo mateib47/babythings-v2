@@ -22,7 +22,7 @@ const Description = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.parentTwo}>
+    <div className={classes.parentTwo} id="home-description">
         {/* <Card className={classes.cardBody}>          
         <Card.Body>
           <Row>
@@ -40,7 +40,7 @@ const Description = () => {
           </Row>
         </Card.Body>
       </Card> */}
-      <Card sx={{ display: 'flex', padding: '20px', width:'60vw', backgroundColor: 'rgb(238, 228, 225)', alignItems:'center' }} id="home-description">
+      <Card sx={{ display: 'flex', padding: '20px', width:'60vw', backgroundColor: 'rgb(238, 228, 225)', alignItems:'center' }} >
       <Box sx={{ display: 'flex', flexDirection: 'column', padding:'0 30px' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">

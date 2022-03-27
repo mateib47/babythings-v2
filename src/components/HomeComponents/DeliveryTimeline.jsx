@@ -16,6 +16,8 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 import PaymentIcon from '@mui/icons-material/Payment';
 import TouchAppIcon from '@mui/icons-material/TouchApp';
 import InventoryIcon from '@mui/icons-material/Inventory';
+import Box from '@mui/material/Box';
+
 
 import Paper from '@mui/material/Paper';
 
@@ -27,10 +29,10 @@ import useStyles from './styles';
 const DeliveryTimeline = () => {
     const classes = useStyles();
   return (
-      <>
-          <Typography variant='h1' color='white' style={{textAlign:'center'}}>How it works</Typography>
-            <br/>
-          <div className={classes.parentTwo}>
+         
+    <div className={classes.parentTwo}>
+            <Box sx={{ maxWidth: 1100 }}>
+        <Typography variant='h1' color='white' style={{textAlign:'center'}}>How it works</Typography>
     <Paper>
         <Timeline position="alternate">
         <TimelineItem>
@@ -140,8 +142,8 @@ const DeliveryTimeline = () => {
         </TimelineItem>
         </Timeline>
     </Paper>
+    </Box>
     </div>
-    </>
   )
 }
 
