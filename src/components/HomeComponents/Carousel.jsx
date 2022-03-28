@@ -69,7 +69,7 @@ function SwipeableTextMobileStepper() {
           alignItems: 'center',
           height: 50,
           pl: 2,
-          bgcolor: 'background.default',
+          bgcolor: 'rgb(238, 228, 225)',
         }}
       >
         <Typography>{images[activeStep].label}</Typography>
@@ -103,6 +103,7 @@ function SwipeableTextMobileStepper() {
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
+        style={{backgroundColor:'rgb(238, 228, 225)'}}
         steps={maxSteps}
         position="static"
         activeStep={activeStep}

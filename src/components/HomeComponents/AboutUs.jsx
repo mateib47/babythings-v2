@@ -13,7 +13,7 @@ const AboutUs = () => {
     <div className={classes.parentTwo}>
         <Box sx={{ maxWidth: 1100, flexGrow: 1 }}>
             <Typography variant='h1' color='white' style={{textAlign:'center'}}>About Us</Typography>
-            <Paper style={{margin:'0 15%', padding:'6% 10%'}}>
+            <Paper style={{margin:'0 15%', padding:'6% 10%', backgroundColor:'rgb(238, 228, 225)'}}>
                 <Typography color='black'>We are a Netherlands-based group of entrepreneurs that cares about the future of our planet and
                     it's future generations. With this in mind we decided to found KiekeBox - a product that is conscious
                     about both it's environmental impact as well as the impact it has on the young lives that it touches

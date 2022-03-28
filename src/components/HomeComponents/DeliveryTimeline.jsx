@@ -33,7 +33,7 @@ const DeliveryTimeline = () => {
     <div className={classes.parentTwo}>
             <Box sx={{ maxWidth: 1100 }}>
         <Typography variant='h1' color='white' style={{textAlign:'center'}}>How it works</Typography>
-    <Paper>
+    <Paper style={{backgroundColor: 'rgb(238, 228, 225)'}}>
         <Timeline position="alternate">
         <TimelineItem>
             <TimelineOppositeContent

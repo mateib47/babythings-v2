@@ -6,16 +6,21 @@ import {Link, useLocation} from 'react-router-dom';
 
 import logo from '../../assets/img/logo.png';
 import useStyles from './styles';
+import Drawer from './DrawerNavbar'
 
 
 const Navbar = ({totalItems}) => {
   const classes = useStyles(); 
   const location = useLocation();
+  const theme = useTheme();
+ const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <>
         <AppBar position="fixed" className={classes.appBar} color="inherit">
             <Toolbar>
+            {isMobile? (<Drawer />) : (
+                <div>
                 <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
                     <img src={logo} alt="BabythingsStore" height="25px" className={classes.image} />
                     Kiekebox
@@ -38,6 +43,8 @@ const Navbar = ({totalItems}) => {
                         </Badge>
                     </IconButton>
                 </div> )}
+                </div>
+            )} 
             </Toolbar>
         </AppBar>
     </>
