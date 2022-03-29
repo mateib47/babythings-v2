@@ -3,6 +3,7 @@ import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import {Container} from '@material-ui/core';
 import Button from '@mui/material/Button';
 import useStyles from './styles';
 
@@ -10,10 +11,11 @@ import useStyles from './styles';
 const AboutUs = () => {
     const classes = useStyles();
   return (
-    <div className={classes.parentTwo}>
+      <Container maxWidth="xl">
+        <div className={classes.parentTwo}>
         <Box sx={{ maxWidth: 1100, flexGrow: 1 }}>
             <Typography variant='h1' color='white' style={{textAlign:'center'}}>About Us</Typography>
-            <Paper style={{margin:'0 15%', padding:'6% 10%', backgroundColor:'rgb(238, 228, 225)'}}>
+            <Paper style={{margin:'0 1vw', padding:'6% 10%', backgroundColor:'rgb(238, 228, 225)'}}>
                 <Typography color='black'>We are a Netherlands-based group of entrepreneurs that cares about the future of our planet and
                     it's future generations. With this in mind we decided to found KiekeBox - a product that is conscious
                     about both it's environmental impact as well as the impact it has on the young lives that it touches
@@ -25,7 +27,8 @@ const AboutUs = () => {
                 </Typography>
             </Paper>
         </Box>
-    </div>
+        </div>
+      </Container>
   )
 }
 

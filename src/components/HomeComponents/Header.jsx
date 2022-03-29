@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from './styles';
-import {Typography, CssBaseline, IconButton, Collapse} from '@material-ui/core';
+import {Typography, CssBaseline, IconButton, Collapse,Container} from '@material-ui/core';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useEffect, useState } from 'react';
 import { Link as Scroll } from 'react-scroll';
@@ -19,7 +19,7 @@ const Home = () => {
     }, []);
 
   return (
-      <>
+      <Container maxWidth="lg">
         <div className={classes.toolbar}/>
         <div className={classes.parent}>
           <Collapse 
@@ -37,7 +37,7 @@ const Home = () => {
             </div>
           </Collapse>
         </div>
-      </>
+      </Container>
   )
 }
 

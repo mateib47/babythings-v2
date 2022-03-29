@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography,makeStyles,useTheme,useMediaQuery} from '@material-ui/core';
 import {ShoppingCart} from '@material-ui/icons';
 import {Link, useLocation} from 'react-router-dom';
 
 import logo from '../../assets/img/logo.png';
 import useStyles from './styles';
-import Drawer from './DrawerNavbar'
+import DrawerNavbar from './DrawerNavbar'
 
 
 const Navbar = ({totalItems}) => {
@@ -19,12 +19,12 @@ const Navbar = ({totalItems}) => {
     <>
         <AppBar position="fixed" className={classes.appBar} color="inherit">
             <Toolbar>
-            {isMobile? (<Drawer />) : (
-                <div>
-                <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
+            <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
                     <img src={logo} alt="BabythingsStore" height="25px" className={classes.image} />
                     Kiekebox
-                </Typography>
+            </Typography>
+            {isMobile? (<DrawerNavbar />) : (
+                <>
                 <div className={classes.grow} />
                 <Typography component={Link} to="/boxes" variant="h6"  color="inherit" className={classes.titleUncentered}>
                     Our Boxes
@@ -43,7 +43,7 @@ const Navbar = ({totalItems}) => {
                         </Badge>
                     </IconButton>
                 </div> )}
-                </div>
+                </>
             )} 
             </Toolbar>
         </AppBar>
