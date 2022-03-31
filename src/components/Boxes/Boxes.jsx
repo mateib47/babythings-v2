@@ -7,9 +7,12 @@ import Box from './Box/Box';
 const Boxes = () => {
     const classes = useStyles(); 
   return (
-    <div className={classes.root}>
+      <div style={{height: '100vh'}}>
+              <div className={classes.root} >
         <Box />    
     </div>
+          </div>
+
   )
 }
 
