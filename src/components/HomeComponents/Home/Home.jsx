@@ -25,7 +25,6 @@ const Home = () => {
   return (
     <div className={classes.root}>
        <CssBaseline />
-       <Header/>
        <Description/> 
        <DeliveryTimeline />
        <Carousel />
