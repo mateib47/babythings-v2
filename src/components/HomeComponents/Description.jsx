@@ -22,36 +22,48 @@ const Description = () => {
 
   return (
     <div className={classes.parentTwo} id="home-description">
-      <Container maxWidth="xl">
+      <Box sx={{ width: 1 }}>
         <Card
-          className={classes.stretch}
           sx={{
             display: "flex",
             backgroundColor: "rgb(238, 228, 225)",
             alignItems: "center",
+            justifyContent: "center"
           }}
         >
           {isMobile ? (
             <></>
           ) : (
-            <CardMedia
-              component="img"
-              sx={{ width: 551 }}
-              image={boxes}
-              alt="Box photo"
-            />
+            <Box sx={{ width: 1 }} textAlign="center">
+              <CardMedia
+                component="img"
+                sx={{ width: 2/3 }}
+                image={boxes}
+                alt="Box photo"
+              />
+            </Box>
           )}
           <Box
-            sx={{ display: "flex", flexDirection: "column", padding: "0 30px" }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignText: "right",
+              width: 3/4
+            }}
           >
             <CardContent
-              sx={{ flex: "1 0 auto" }}
-              style={{ backgroundColor: "rgb(212, 202, 199)",
-            padding:'200px 50px' }}
+              sx={{
+                width: 1,
+              }}
+              style={{
+                backgroundColor: "rgb(212, 202, 199)",
+                padding: "200px 150px",
+              }}
             >
               <Typography component="div" variant="h5">
                 Unique baby box subscriptions
               </Typography>
+              <br />
               <Typography
                 variant="subtitle1"
                 color="text.secondary"
@@ -62,6 +74,7 @@ const Description = () => {
                 at night knowing that your baby is cared in a cute, conscious
                 and convenient way every single month.
               </Typography>
+              <br />
               <Box textAlign="right">
                 <Typography
                   variant="subtitle2"
@@ -78,12 +91,14 @@ const Description = () => {
                   Gender Neutral
                 </Typography>
                 <Typography
-                variant="subtitle2"
-                color="text.secondary"
-                component="div"
-              >
-                Born in Netherlands, European Based
-              </Typography>
+                  variant="subtitle2"
+                  color="text.secondary"
+                  component="div"
+                >
+                  Born in Netherlands, European Based
+                </Typography>
+              </Box>
+              <Box textAlign="center">
                 <br />
                 <br />
                 <Button
@@ -99,7 +114,7 @@ const Description = () => {
             </CardContent>
           </Box>
         </Card>
-      </Container>
+      </Box>
     </div>
   );
 };
