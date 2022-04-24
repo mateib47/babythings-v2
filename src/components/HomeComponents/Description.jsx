@@ -12,7 +12,7 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import useStyles from "./styles";
 // import {Card, Button, Col, Row} from "react-bootstrap";
-import boxes from "../../assets/img/boxes2.png";
+import photo from "../../assets/img/bg.png";
 import { Link } from "react-router-dom";
 
 const Description = () => {
@@ -28,18 +28,25 @@ const Description = () => {
             display: "flex",
             backgroundColor: "rgb(238, 228, 225)",
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           {isMobile ? (
             <></>
           ) : (
-            <Box sx={{ width: 1 }} textAlign="center">
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: 1,
+              }}
+              textAlign="center"
+            >
               <CardMedia
                 component="img"
-                sx={{ width: 2/3 }}
-                image={boxes}
-                alt="Box photo"
+                sx={{ width: 1, height: "100%" }}
+                image={photo}
+                alt="Baby photo"
               />
             </Box>
           )}
@@ -48,7 +55,7 @@ const Description = () => {
               display: "flex",
               flexDirection: "column",
               alignText: "right",
-              width: 3/4
+              width: 3 / 4,
             }}
           >
             <CardContent
@@ -102,9 +109,9 @@ const Description = () => {
                 <br />
                 <br />
                 <Button
+                style={{backgroundColor: '#A5AEAA'}}
                   type="submit"
                   variant="contained"
-                  color="primary"
                   component={Link}
                   to="/order"
                 >
