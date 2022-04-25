@@ -32,8 +32,8 @@ const Navbar = ({totalItems}) => {
                 <Typography component={Link} to="/order" variant="h6"  color="inherit" className={classes.titleUncentered}>
                     Order
                 </Typography>
-                <Typography component={Link} to="/account" variant="h6"  color="inherit" className={classes.titleUncentered}>
-                    Account
+                <Typography component={Link} to="/contact" variant="h6"  color="inherit" className={classes.titleUncentered}>
+                    Contact
                 </Typography>
                 {location.pathname !== '/cart' && (
                 <div className={classes.button}>

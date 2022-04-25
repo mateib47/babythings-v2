@@ -83,7 +83,7 @@ function SwipeableTextMobileStepper() {
             >
               Our Potential Brands
             </Typography>
-            <Typography>{images[activeStep].label}</Typography>
+            {/* <Typography>{images[activeStep].label}</Typography> */}
           </div>
         </Paper>
         <AutoPlaySwipeableViews
