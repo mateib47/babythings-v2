@@ -9,6 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useEffect } from 'react';
 import { Container, Typography, Grid, Box } from "@material-ui/core";
+import {ContactDefault, ContactCustomer, ContactBusiness} from './ContactComponents';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -19,16 +20,37 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const Contact = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [user, setUser] = React.useState(false);
+    let contactPage;
+
+    switch(user){
+      case "customer":
+        contactPage = <ContactCustomer />;
+        break;
+      case "business":
+        contactPage = <ContactBusiness />;
+        break;
+      default:
+        contactPage = <ContactDefault />;
+    }
+
     useEffect(() => {
         handleClickOpen();
       });
+
+    // useEffect(() => {
+    //   handleClose();
+    // }, [user])
+    
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (u) => {
     setOpen(false);
+    setUser(u);
+    console.log(open)
   };
 
   return (
@@ -42,17 +64,18 @@ const Contact = () => {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Are you interested in buying or collaborating with us"}</DialogTitle>
+        <DialogTitle>{"Are you interested in buying or collaborating with us?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Let us know if you would like to get notified when our boxes are in stock or if you are a business and you want to collaborate.
+            Let us know if you would like to get notified when our boxes are in stock or if you are a business and you want to get in touch.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Customer</Button>
-          <Button onClick={handleClose}>Business</Button>
+          <Button onClick={() => handleClose("customer")}>Customer</Button>
+          <Button onClick={() => handleClose("business")}>Business</Button>
         </DialogActions>
       </Dialog>
+      {contactPage}
     </div>
   )
 }
