@@ -22,7 +22,7 @@ import Paper from "@mui/material/Paper";
 
 import useStyles from "./styles";
 //todo maybe make it horizontal
-//https://stackoverflow.com/questions/63175060/is-there-a-way-to-implement-horizontal-timeline-using-material-ui-in-react
+//0https://stackoverflow.com/questions/63175060/is-there-a-way-to-implement-horizontal-timeline-using-material-ui-in-react
 //todo fix timeline connectors
 
 const DeliveryTimeline = () => {
@@ -36,7 +36,7 @@ const DeliveryTimeline = () => {
           How it works
         </Typography>
         <Paper style={{ backgroundColor: "rgb(238, 228, 225)" }}>
-          <Timeline position="alternate">
+          <Timeline position="alternate" className={classes.timeline} align="alternate">
             <TimelineItem>
               <TimelineOppositeContent
                 sx={{ m: "auto 0" }}
@@ -47,12 +47,12 @@ const DeliveryTimeline = () => {
               <TimelineSeparator>
                 <TimelineConnector />
                 <TimelineDot>
-                  <TouchAppIcon />
+                  <TouchAppIcon className={classes.timelineIcon} />
                 </TimelineDot>
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography variant="h6" component="span">
+              <TimelineContent sx={{ py: "12px", px: 2 }} className={classes.timelineContentContainer}>
+                <Typography variant="h6" component="span" className={classes.timelineContent}>
                   Choose Boxes
                 </Typography>
                 <Typography>You can get up to three modules</Typography>
