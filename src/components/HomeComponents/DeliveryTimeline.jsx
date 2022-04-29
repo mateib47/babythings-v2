@@ -17,6 +17,7 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import TouchAppIcon from "@mui/icons-material/TouchApp";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import Box from "@mui/material/Box";
+import DeliveryItem from "./Delivery/DeliveryItem"; //rename
 
 import Paper from "@mui/material/Paper";
 
@@ -28,22 +29,23 @@ import useStyles from "./styles";
 const DeliveryTimeline = () => {
   const classes = useStyles();
   return (
-    <div className={classes.parentTwo} style={{marginTop: '40px'}}>
+    <div className={classes.parentTwo} style={{ marginTop: "40px" }}>
       <div className={classes.toolbar} />
 
-      <Box sx={{ maxWidth: 1100 }}>
+      <Box sx={{ maxWidth: 3100 }}>
         <Typography variant="h1" color="white" style={{ textAlign: "center" }}>
           How it works
         </Typography>
         <Paper style={{ backgroundColor: "rgb(238, 228, 225)" }}>
-          <Timeline position="alternate" className={classes.timeline} align="alternate">
-            <TimelineItem>
+          <Timeline className={classes.timeline} align="alternate">
+            <DeliveryItem color="text.primary" title="Choose Boxes" description="You can get up to three modules" iconComponent={<TouchAppIcon className={classes.timelineIcon} />}  />
+            {/* <TimelineItem>
               <TimelineOppositeContent
                 sx={{ m: "auto 0" }}
                 align="right"
                 variant="body2"
                 color="text.secondary"
-              ></TimelineOppositeContent>
+              />
               <TimelineSeparator>
                 <TimelineConnector />
                 <TimelineDot>
@@ -51,8 +53,15 @@ const DeliveryTimeline = () => {
                 </TimelineDot>
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }} className={classes.timelineContentContainer}>
-                <Typography variant="h6" component="span" className={classes.timelineContent}>
+              <TimelineContent
+                sx={{ py: "12px", px: 2 }}
+                className={classes.timelineContentContainer}
+              >
+                <Typography
+                  variant="h6"
+                  component="span"
+                  className={classes.timelineContent}
+                >
                   Choose Boxes
                 </Typography>
                 <Typography>You can get up to three modules</Typography>
@@ -141,7 +150,7 @@ const DeliveryTimeline = () => {
                 </Typography>
                 <Typography>Adjust preferences in your account</Typography>
               </TimelineContent>
-            </TimelineItem>
+            </TimelineItem> */}
           </Timeline>
         </Paper>
       </Box>
