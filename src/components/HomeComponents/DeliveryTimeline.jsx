@@ -28,6 +28,8 @@ import useStyles from "./styles";
 
 const DeliveryTimeline = () => {
   const classes = useStyles();
+  let title = ["Choose Boxes","deliver"];
+  //let descr = "You can get up to three modules";
   return (
     <div className={classes.parentTwo} style={{ marginTop: "40px" }}>
       <div className={classes.toolbar} />
@@ -38,7 +40,8 @@ const DeliveryTimeline = () => {
         </Typography>
         <Paper style={{ backgroundColor: "rgb(238, 228, 225)" }}>
           <Timeline className={classes.timeline} align="alternate">
-            <DeliveryItem color="text.primary" title="Choose Boxes" description="You can get up to three modules" iconComponent={<TouchAppIcon className={classes.timelineIcon} />}  />
+            {title.map((t) => (<DeliveryItem  title={t} key={title.indexOf(t)} />))}
+            
             {/* <TimelineItem>
               <TimelineOppositeContent
                 sx={{ m: "auto 0" }}
