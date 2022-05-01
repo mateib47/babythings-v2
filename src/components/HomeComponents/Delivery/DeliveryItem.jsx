@@ -21,7 +21,7 @@ import Box from "@mui/material/Box";
 
 import Paper from "@mui/material/Paper";
 
-const DeliveryItem = ( {title}) => {
+const DeliveryItem = ({ color, title, description, iconComponent }) => {
   const classes = useStyles();
 
   return (
@@ -31,28 +31,27 @@ const DeliveryItem = ( {title}) => {
           sx={{ m: "auto 0" }}
           align="right"
           variant="body2"
-          color="text.primary"
+          color={color}
         />
         <TimelineSeparator>
           <TimelineConnector />
-          <TimelineDot>
-          </TimelineDot>
+          <TimelineDot>{iconComponent}</TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent
-          sx={{ py: "12px", px: 2 }}
+          sx={{ py: "12px", px: 6 }}
           className={classes.timelineContentContainer}
         >
-          <Paper>
-            <Typography
-              variant="h6"
-              component="span"
-              className={classes.timelineContent}
-            >
-              {title}
-            </Typography>
-            {/* <Typography>{description}</Typography> */}
-          </Paper>
+          <Typography
+            variant="h6"
+            component="span"
+            className={classes.timelineContent}
+          >
+            {title}
+          </Typography>
+          <Typography className={classes.timelineContent}>
+            {description}
+          </Typography>
         </TimelineContent>
       </TimelineItem>
     </>

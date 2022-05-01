@@ -28,7 +28,20 @@ import useStyles from "./styles";
 
 const DeliveryTimeline = () => {
   const classes = useStyles();
-  let title = ["Choose Boxes","deliver"];
+  let items = [
+    {
+      title: "Choose Boxes",
+      descr: "You can get up to three modules",
+      color: "text.primary",
+      iconComponent: <TouchAppIcon className={classes.timelineIcon} />,
+    },
+    {
+      title: "Choose Boxes",
+      descr: "You can get up to three modules",
+      color: "text.primary",
+      iconComponent: <TouchAppIcon className={classes.timelineIcon} />,
+    },
+  ];
   //let descr = "You can get up to three modules";
   return (
     <div className={classes.parentTwo} style={{ marginTop: "40px" }}>
@@ -40,120 +53,15 @@ const DeliveryTimeline = () => {
         </Typography>
         <Paper style={{ backgroundColor: "rgb(238, 228, 225)" }}>
           <Timeline className={classes.timeline} align="alternate">
-            {title.map((t) => (<DeliveryItem  title={t} key={title.indexOf(t)} />))}
-            
-            {/* <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: "auto 0" }}
-                align="right"
-                variant="body2"
-                color="text.secondary"
+            {items.map((t) => (
+              <DeliveryItem
+                title={t.title}
+                key={items.indexOf(t)}
+                description={t.descr}
+                iconComponent={t.iconComponent}
+                color={t.color}
               />
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot>
-                  <TouchAppIcon className={classes.timelineIcon} />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{ py: "12px", px: 2 }}
-                className={classes.timelineContentContainer}
-              >
-                <Typography
-                  variant="h6"
-                  component="span"
-                  className={classes.timelineContent}
-                >
-                  Choose Boxes
-                </Typography>
-                <Typography>You can get up to three modules</Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: "auto 0" }}
-                variant="body2"
-                color="text.secondary"
-              ></TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot color="primary">
-                  <LaptopMacIcon />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography variant="h6" component="span">
-                  Fill in baby details
-                </Typography>
-                <Typography></Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot color="primary" variant="outlined">
-                  <PaymentIcon />
-                </TimelineDot>
-                <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography variant="h6" component="span">
-                  Choose payment plan
-                </Typography>
-                <Typography>
-                  Monthly / 3 months prepaid / 6 months prepaid
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
-                <TimelineDot>
-                  <InventoryIcon />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography variant="h6" component="span">
-                  We pack everything
-                </Typography>
-                <Typography>All the modules come in one box</Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
-                <TimelineDot color="primary">
-                  <LocalShippingIcon />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography variant="h6" component="span">
-                  Shipping
-                </Typography>
-                <Typography>
-                  The boxes arrive at the start of every month
-                </Typography>
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineSeparator>
-                <TimelineConnector sx={{ bgcolor: "secondary.main" }} />
-                <TimelineDot color="secondary">
-                  <SentimentVerySatisfiedIcon />
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent sx={{ py: "12px", px: 2 }}>
-                <Typography variant="h6" component="span">
-                  Enjoy
-                </Typography>
-                <Typography>Adjust preferences in your account</Typography>
-              </TimelineContent>
-            </TimelineItem> */}
+            ))}
           </Timeline>
         </Paper>
       </Box>
