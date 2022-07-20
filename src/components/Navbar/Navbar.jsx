@@ -19,9 +19,9 @@ const Navbar = ({totalItems}) => {
     <>
         <AppBar position="fixed" className={classes.appBar} color="inherit">
             <Toolbar>
-            <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
+            <Typography component={Link} to="/" className={classes.title} color="inherit">
                     <img src={logo} alt="BabythingsStore" height="25px" className={classes.image} />
-                    Kiekebox
+                    Babythings
             </Typography>
             {isMobile? (<DrawerNavbar />) : (
                 <>

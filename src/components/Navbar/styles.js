@@ -16,6 +16,9 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     textDecoration: 'none',
+    fontSize: '30px',
+    fontFamily: 'Oooh Baby',
+    fontWeight:'bold'
   },
    titleUncentered: {
     flexGrow: 0.1,

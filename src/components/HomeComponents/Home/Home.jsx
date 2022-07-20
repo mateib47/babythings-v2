@@ -6,6 +6,7 @@ import Carousel from '../Carousel'
 import DeliveryTimeline from '../DeliveryTimeline'
 import {CssBaseline, IconButton, Collapse} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+// import './home.scss';
  
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +26,7 @@ const Home = () => {
   return (
     <div className={classes.root}>
        <CssBaseline />
+       <Header />
        <Description/> 
        <DeliveryTimeline />
        <Carousel />
